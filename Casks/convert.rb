@@ -1,6 +1,6 @@
 cask "convert" do
-  version "0.2.0"
-  sha256 "51d1279a72c1501c0063cb5bfb852948fbaf50da992866e98a260ba6fd0bcd07"
+  version "0.3.0"
+  sha256 "d2323710b99d6b24ac5bdc310fe176b155674d5928b0ca4e336c5ee76899458e"
 
   url "https://github.com/Ricardobroeders/convert/releases/download/convert-v#{version}/Convert-#{version}.dmg"
   name "Convert"
