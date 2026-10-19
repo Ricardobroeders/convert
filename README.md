@@ -98,31 +98,96 @@ Press **Esc** or click outside the wheel to cancel.
 
 **⌘ + middle-click** an image or PDF to open the edit wheel. Each tool opens a small window with a live preview and saves a **new copy**, such as `photo cropped.jpg`, `contract signed.pdf` or `report pages 1-3.pdf`.
 
-| Tool | Images | PDFs |
-|---|---|---|
-| **Crop** | Drag the corners or edges. Choose Free, 1:1, 16:9, 9:16, 4:3 or 3:4, or type an exact width and height in pixels | – |
-| **Pages** | – | Click pages in the order you want, or type ranges like `5, 1-3`, and save them as a new PDF |
-| **Compress** | A slider from Light to Maximum, optional resize (3840 to 800 px), output format (JPG, WebP, HEIC, AVIF, PNG) and a choice to keep or strip metadata. The new file size updates live | The same slider recompresses and downsamples the images inside the PDF; text stays sharp and selectable |
-| **Redact** | Drag black boxes over anything you want hidden. Metadata (location, camera) is removed from the copy | Black boxes on any page. Pages with boxes are flattened, so the hidden text is **really gone**, not just covered up |
-| **Sign** | Place your signature and/or a date, drag to move, use the corner to resize | The same, on any page; the rest of the PDF stays untouched |
-| **Protect** | Saved as a password-protected PDF | A password-protected copy (AES encryption) that asks for the password when opened |
+| Tool | Images | PDFs | What it does |
+|---|:---:|:---:|---|
+| [**Crop**](#crop) | ✓ | | Cut an image to a shape or exact size |
+| [**Compress**](#compress) | ✓ | ✓ | Make files smaller, with a strength slider |
+| [**Redact**](#redact) | ✓ | ✓ | Black out personal or confidential details for good |
+| [**Sign**](#sign) | ✓ | ✓ | Place your signature and the date |
+| [**Pages**](#pages) | | ✓ | Save a copy with only the pages you pick, in your order |
+| [**Protect**](#protect) | ✓ | ✓ | Save a password-protected copy |
+
+### Crop
+
+Drag the corners or edges, or move the whole frame. Pick a shape (**Free, 1:1, 16:9, 9:16, 4:3 or 3:4**) or type an exact **width and height in pixels**. Useful for profile pictures, social posts and banners. The cropped copy keeps the original format and quality.
 
 <p align="center">
-  <img src="images/crop.png" width="420" alt="The crop window with aspect ratio presets and pixel size fields">
-  <img src="images/compress.png" width="345" alt="The compress window with a strength slider and a live size readout: 93 KB to 60 KB">
+  <img src="images/crop.png" width="460" alt="The crop window with aspect ratio presets and pixel size fields">
 </p>
 
-### Signatures and dates
+### Compress
 
-- **Draw your signature once** with the mouse or trackpad on the signature pad (**+ New**). It's saved on your Mac and ready next time. You can keep several, and right-click one to delete it.
-- **Add a date** with the **Date** tile. It's today by default, but you can pick any date. Choose a style: `19-10-2026`, `19 October 2026` or `2026-10-19`. It follows your Mac's language, so Dutch gives `19 oktober 2026`. Changing the date or style updates dates you've already placed.
-- Signatures are stored only in `~/Library/Application Support/Convert/Signatures` and never leave your Mac.
+Move the slider from **Light** to **Maximum** and see the new file size and the result straight away, before you save.
 
-This makes it quick to sign contracts, addenda and forms: ⌘ + middle-click the PDF, choose **Sign**, click your signature and the date, put them in place and save.
+- **Images:** you can also scale them down (3840 to 800 px on the longest side), choose the output format (JPG, WebP, HEIC, AVIF or PNG) and keep or strip metadata like location and camera.
+- **PDFs:** the images inside are recompressed and scaled down, while text and vector graphics stay sharp and selectable. Handy for scans and presentations that are too big to email.
 
-### Passwords
+If a setting wouldn't make the file smaller, Convert says so and won't save a bigger copy.
 
-Choose a password of at least 4 characters and type it twice. A strength meter shows how strong it is. The copy opens in Preview, Adobe Reader, browsers and other PDF readers after entering the password. Convert doesn't keep the password, so **write it down**: a forgotten password can't be recovered.
+<p align="center">
+  <img src="images/compress.png" width="400" alt="The compress window with a strength slider and a live size readout: 93 KB to 60 KB">
+</p>
+
+### Redact
+
+Drag black boxes over anything that shouldn't be shared: names, addresses, account numbers, signatures, faces. Click a box to select it, then press ⌫ or click its ✕ to remove it. ⌘Z undoes the last box, and ← / → switch between PDF pages.
+
+Redaction is **permanent** in the copy:
+
+- **Images:** the pixels are replaced with black, and location and camera metadata is removed.
+- **PDFs:** pages with boxes are flattened into an image, so the text underneath is really gone. It can't be selected, searched or copied out from under the box. Pages without boxes keep their normal, selectable text.
+
+<p align="center">
+  <img src="images/redact.png" width="340" alt="Redacting a PDF: black boxes over the email, phone, IBAN and date of birth">
+</p>
+
+### Sign
+
+Sign contracts, addenda and forms without printing or scanning.
+
+1. ⌘ + middle-click the PDF (or image) and choose **Sign**.
+2. Click your signature tile, then click where it goes. Drag to move it, use the corner to resize it.
+3. Click the **Date** tile and click next to your signature to add the date.
+4. Go to other pages with ← / → if more initials or signatures are needed, then **Save Signed Copy**.
+
+**Your signature**
+
+- Draw it once on the signature pad (**+ New**) with the mouse or trackpad, in black or blue ink. It's ready every time after that.
+- You can keep several, for example a full signature and your initials. Right-click one to delete it.
+- Signatures are stored only on your Mac, in `~/Library/Application Support/Convert/Signatures`.
+
+**The date**
+
+- It's today by default, and you can pick any other date.
+- Choose a style: `19-10-2026`, `19 October 2026` or `2026-10-19`. Dates follow your Mac's language, so Dutch gives `19 oktober 2026`.
+- Changing the date or style updates the dates you've already placed.
+
+The rest of the PDF stays as it was, with selectable text.
+
+<p align="center">
+  <img src="images/sign.png" width="320" alt="Signing page 5 of a PDF: a signature on the signature line and the date next to it">
+</p>
+
+### Pages
+
+Save a new PDF with only the pages you need, **in the order you click them**. The numbers on the thumbnails show each page's position in the copy. You can also type ranges like `4, 1-2` or `1-3, 7`, or use **All** and **None**. Useful for sending one section of a long report, or moving an appendix to the front.
+
+<p align="center">
+  <img src="images/pages.png" width="560" alt="Choosing pages: page 4, then 1 and 2, giving a 3-page copy">
+</p>
+
+### Protect
+
+Save a copy that asks for a password when it's opened.
+
+- Type a password of at least 4 characters twice. A meter shows how strong it is, and you can show the password to check it.
+- **PDFs** get AES encryption. **Images** are saved as a password-protected PDF.
+- The copy opens in Preview, Adobe Reader, browsers and every other PDF reader once the password is entered.
+- The original stays unprotected. Convert doesn't keep the password, so **write it down**: a forgotten password can't be recovered.
+
+<p align="center">
+  <img src="images/protect.png" width="440" alt="The protect window with a strong password typed twice">
+</p>
 
 ## Clipboard history
 
